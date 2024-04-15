@@ -1,0 +1,90 @@
+[
+    {
+        "model": "chart.insight",  
+        "fields": {
+            "end_year": "",
+            "intensity": 6,
+            "sector": "Energy",
+            "topic": "gas",
+            "insight": "Annual Energy Outlook",
+            "url": "http://www.eia.gov/outlooks/aeo/pdf/0383(2017).pdf",
+            "region": "Northern America",
+            "start_year": "",
+            "impact": "",
+            "added": "2017-01-20T03:51:25",  
+            "published": "2017-01-09T00:00:00",  
+            "country": "United States of America",
+            "relevance": 2,
+            "pestle": "Industries",
+            "source": "EIA",
+            "title": "U.S. natural gas consumption is expected to increase during much of the projection period.",
+            "likelihood": 3
+        }
+    },
+    {
+        "model": "chart.insight",  
+        "fields": {
+            "end_year": "",
+            "intensity": 6,
+            "sector": "Energy",
+            "topic": "oil",
+            "insight": "Annual Energy Outlook",
+            "url": "http://www.eia.gov/outlooks/aeo/pdf/0383(2017).pdf",
+            "region": "Northern America",
+            "start_year": "",
+            "impact": "",
+            "added": "2017-01-20T03:51:24",  
+            "published": "2017-01-09T00:00:00",  
+            "country": "United States of America",
+            "relevance": 2,
+            "pestle": "Industries",
+            "source": "EIA",
+            "title": "Reference case U.S. crude oil production is projected to recover from recent declines.",
+            "likelihood": 3
+        }
+    },
+    {
+        "model": "chart.insight",  
+        "fields": {
+            "end_year": "",
+            "intensity": 6,
+            "sector": "Energy",
+            "topic": "oil",
+            "insight": "Annual Energy Outlook",
+            "url": "http://www.eia.gov/outlooks/aeo/pdf/0383(2017).pdf",
+            "region": "Northern America",
+            "start_year": "",
+            "impact": "",
+            "added": "2017-01-20T03:51:24",
+            "published": "2017-01-09T00:00:00",
+            "country": "United States of America",
+            "relevance": 2,
+            "pestle": "Industries",
+            "source": "EIA",
+            "title": "Reference case U.S. crude oil production is projected to recover from recent declines.",
+            "likelihood": 3
+        }
+    },
+    {
+        "model": "chart.insight",  
+        "fields": {
+            "end_year": "",
+            "intensity": 6,
+            "sector": "Energy",
+            "topic": "consumption",
+            "insight": "Annual Energy Outlook",
+            "url": "http://www.eia.gov/outlooks/aeo/pdf/0383(2017).pdf",
+            "region": "Northern America",
+            "start_year": "",
+            "impact": "",
+            "added": "2017-01-20T03:51:23",
+            "published": "2017-01-09T00:00:00",
+            "country": "United States of America",
+            "relevance": 2,
+            "pestle": "Industries",
+            "source": "EIA",
+            "title": "U.S. petroleum consumption is projected to remain below the 2005 level.",
+            "likelihood": 3
+        }
+    }
+]

@@ -1,0 +1,30 @@
+
+                    <div class="table-responsive">
+                      <table class="table" id="example">
+                        
+                        <tbody>
+                            {% for data in insight_data %}
+                          <tr>
+                            <td>{{forloop.counter}}</td>
+                            <td>{{data.end_year}}</td>
+                            <td> {{data.intensity}} </td>
+                            <td> {{data.sector}} </td>
+                            <td> {{data.topic}} </td>
+                            <td> {{data.insight}} </td>
+                            <td> {{data.start_year}} </td>
+                            <td> {{data.region}} </td>
+                            <td> {{data.impact}} </td>
+                            <td> {{data.country}} </td>
+                            <td> {{data.relevance}} </td>
+                            <td> {{data.pestle}} </td>
+                            <td> {{data.source}} </td>
+                            <td> {{data.title}} </td>
+                            <td> {{data.likelihood}} </td>
+
+                          
+                          </tr>
+                           {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+                  

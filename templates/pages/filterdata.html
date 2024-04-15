@@ -1,0 +1,97 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block content %}
+<style>
+
+input#filterInput {
+    color: white !important;
+}
+table.dataTable thead th {
+    background-color: #343a40; /* Dark gray background */
+    color: white; /* White text color */
+  }
+
+  /* Styling for table rows */
+  table.dataTable tbody td {
+    padding: 14px 0px !important;
+    color: darkgrey; /* Dark gray text color */
+  }
+ 
+
+  /* Styling for filter input */
+  input#filterInput {
+    color: white !important;
+    background-color: #343a40; /* Dark gray background */
+    border-color: #343a40; /* Dark gray border color */
+  }
+
+  /* Hover effect for table rows */
+  table.dataTable tbody tr:hover {
+    background-color: #495057; /* Darker gray background on hover */
+  }
+</style>
+<div class="row ">
+              <div class="col-12 grid-margin">
+                <div class="card">
+                  <div class="card-body">
+                    {% comment %} <h4 class="card-title">Filtered Insight Data</h4> {% endcomment %}
+                <!-- Form input for filtering -->
+                <form id="filterForm" method="POST"> 
+                 {% csrf_token %}
+                    <div class="form-group">
+                        <label for="filterInput">Filter Insight Data:</label>
+                        <input type="text" class="form-control" id="filterInput" placeholder="Enter your text" data-url="{% url 'data-filter' %}">
+                    </div>
+                </form>
+                <br>
+                    <div class="table-responsive">
+                      <table class="table" id="example">
+                        <thead>
+                          <tr>
+                            <th>Sno. </th>
+                            <th> End Year </th>
+                            <th>  Intensity </th>
+                            <th> Sector </th>
+                            <th> Topic </th>
+                            <th>  Insight </th>
+                            <th> Start Year </th>
+                            <th> Region </th>
+                            <th> Impact </th>
+                            <th> Country </th>
+                            <th> Relevance </th>
+                            <th> Pestle </th>
+                            <th> Source </th>
+                            <th> Title </th>
+                            <th> Liklihood </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            {% for data in insight_data %}
+                          <tr>
+                            <td>{{forloop.counter}}</td>
+                            <td>{{data.end_year}}</td>
+                            <td> {{data.intensity}} </td>
+                            <td> {{data.sector}} </td>
+                            <td> {{data.topic}} </td>
+                            <td> {{data.insight}} </td>
+                            <td> {{data.start_year}} </td>
+                            <td> {{data.region}} </td>
+                            <td> {{data.impact}} </td>
+                            <td> {{data.country}} </td>
+                            <td> {{data.relevance}} </td>
+                            <td> {{data.pestle}} </td>
+                            <td> {{data.source}} </td>
+                            <td> {{data.title}} </td>
+                            <td> {{data.likelihood}} </td>
+
+                          
+                          </tr>
+                           {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+{% endblock content %}

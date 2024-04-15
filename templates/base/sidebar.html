@@ -1,0 +1,59 @@
+
+{% load static %}
+
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+    <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
+      <a class="sidebar-brand brand-logo" href="#">
+      <h3>LOGO</h3>
+      {% comment %} <img src="{% static 'assets/images/id_logo.png' %}" alt="logo"  style="width: 42%;
+        height: 50%;"/> {% endcomment %}
+        </a>
+      <a class="sidebar-brand brand-logo-mini" href="#">
+      <h3>LOGO</h3>
+      </a>
+    </div>
+    <ul class="nav">
+      <li class="nav-item profile">
+        <div class="profile-desc">
+          <div class="profile-pic">
+           
+            <div class="profile-name">
+              <h5 class="mb-0 font-weight-normal">Admin</h5>
+             
+            </div>
+          </div>
+         
+            
+        </div>
+      </li>
+      <li class="nav-item nav-category">
+        <span class="nav-link">Dashboard</span>
+      </li>
+      <li class="nav-item menu-items">
+        <a class="nav-link" href="/">
+          <span class="menu-icon">
+            <i class="mdi mdi-speedometer"></i>
+          </span>
+          <span class="menu-title">Dashboard</span>
+        </a>
+      </li>
+
+      <li class="nav-item menu-items">
+        <a class="nav-link" href="{% url 'filterinsightdata' %}">
+          <span class="menu-icon">
+            <i class="mdi mdi-speedometer"></i>
+          </span>
+          <span class="menu-title">Filter Insight</span>
+        </a>
+      </li>
+     
+      
+     
+      
+    
+    
+   
+
+     
+    </ul>
+  </nav>

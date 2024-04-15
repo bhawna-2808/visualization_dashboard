@@ -1,0 +1,166 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block content %}
+<div class="page-header">
+  <h3 class="page-title"> Chart-js </h3>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#">Charts</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Chart-js</li>
+    </ol>
+  </nav>
+</div>
+<div class="row">
+  <div class="col-lg-6 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Line chart</h4>
+        <canvas id="lineChart" style="height:250px"></canvas>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Bar chart</h4>
+        <canvas id="barChart"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-6 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Area chart</h4>
+        <canvas id="areaChart" style="height:250px"></canvas>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Doughnut chart</h4>
+        <canvas id="doughnutChart" style="height:150px"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-6 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Pie chart</h4>
+        <canvas id="pieChart" style="height:150px"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- content-wrapper ends -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!--- bar chart-->
+<script>
+  // Get data from Django view
+  var lineChartData = {{ line_chart_data|safe }};
+  var barChartData = {{ bar_chart_data|safe }};
+  var pieChartData = {{ pie_chart_data|safe }};
+  var doughnutChartData = {{ doughnut_chart_data|safe }};
+
+  // Render Line Chart
+  var lineCtx = document.getElementById('lineChart').getContext('2d');
+  var lineChart = new Chart(lineCtx, {
+    type: 'line',
+    data: lineChartData,
+    options: {
+      responsive: true,
+      maintainAspectRatio: true
+    }
+  });
+
+  // Render Bar Chart
+  var barCtx = document.getElementById('barChart').getContext('2d');
+  var barChart = new Chart(barCtx, {
+    type: 'bar',
+    data: barChartData,
+    options: {
+      responsive: true,
+      maintainAspectRatio: true
+    }
+  });
+
+  // Render Pie Chart
+  var pieCtx = document.getElementById('pieChart').getContext('2d');
+  var pieChart = new Chart(pieCtx, {
+    type: 'pie',
+    data: {
+      labels: pieChartData.map(data => data.label),
+      datasets: [{
+        data: pieChartData.map(data => data.data),
+        backgroundColor: pieChartData.map(() => getRandomColor())
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: true
+      // Add more options as needed
+    }
+  });
+
+  // Render Doughnut Chart
+  var doughnutCtx = document.getElementById('doughnutChart').getContext('2d');
+  var doughnutChart = new Chart(doughnutCtx, {
+    type: 'doughnut',
+    data: {
+      labels: doughnutChartData.map(data => data.label),
+      datasets: [{
+        data: doughnutChartData.map(data => data.data),
+        backgroundColor: doughnutChartData.map(() => getRandomColor())
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: true
+      // Add more options as needed
+    }
+  });
+
+ // Render Area Chart
+var areaCtx = document.getElementById('areaChart').getContext('2d');
+var areaChart = new Chart(areaCtx, {
+    type: 'line',
+    data: {
+        labels: lineChartData.labels,
+        datasets: [{
+            label: 'Intensity',
+            data: lineChartData.datasets[0].data,
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        fill: {
+            target: 'origin',
+            above: 'rgba(75, 192, 192, 0.2)',   // Fill color above the line
+            below: 'rgba(75, 192, 192, 0.2)'    // Fill color below the line
+        }
+    }
+});
+function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+
+  
+
+</script>
+{% endblock content %}
